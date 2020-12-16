@@ -8,7 +8,7 @@ class Part1 extends React.Component {
   // }
 
   componentDidMount () {
-    console.log(this)
+    document.title = 'part1part1'
   }
 
   // jump = () => {
