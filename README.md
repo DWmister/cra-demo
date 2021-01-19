@@ -68,3 +68,44 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+## 目录结构	
+
+```
+├─ public                     # 静态资源
+│   ├─ favicon.ico            # 图标
+│   └─ index.html             # html模板
+├─ src                        # 业务源代码
+│   ├─ api                    # 所有请求
+│   ├─ assets                 # 静态资源(图片、字体等)
+│   ├─ components             # 全局公用组件
+│   ├─ layout			            # 页面布局
+│   ├─ config                 # 全局配置文件
+│   ├─ pages                  # 页面文件
+│   ├─ router                 # 路由文件
+│   ├─ styles                 # 全局样式
+│   ├─ utils                  # 全局公用方法
+│   ├─ App.js                 # 页面入口
+│   └─ index.js               # 源码入口
+├── .eslintignore             # eslint 配置忽略项目
+├── .eslintrc.js              # eslint 配置
+├── .gitignore                # git 忽略项
+├── .env.development          # 开发环境变量配置
+├── .env.production           # 生产环境变量配置
+├── config-overrides.js       # 对cra的webpack自定义配置
+└── package.json              # 依赖项
+
+```
+
+## 相关依赖
+
+| 依赖                                                         | 描述                                          |
+| ------------------------------------------------------------ | --------------------------------------------- |
+| [react-app-rewired](https://www.npmjs.com/package/react-app-rewired) | 在不`eject`的情况下，修改cra内置的weppack配置 |
+| [node-sass](https://www.npmjs.com/package/node-sass)         | sass支持                                      |
+| [antd](https://ant.design/index-cn)                          | UI组件库                                      |
+| [react-router-dom](https://reactrouter.com/web/guides/quick-start) | 路由                                          |
+
+

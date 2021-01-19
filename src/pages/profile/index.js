@@ -1,20 +1,19 @@
 import React from 'react'
-import './home.scss'
 
-class Home extends React.Component {
+class Profile extends React.Component {
   componentDidMount () {
-    document.title = 'homehome'
+    document.title = 'Profile'
   }
 
   render () {
     return (
       <>
         <div className="g-center g-title">
-          this is home page.
+          this is profile page.
         </div>
       </>
     )
   }
 }
 
-export default Home
+export default Profile
