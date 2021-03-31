@@ -5,9 +5,9 @@
   "homepage": "/",
   "dependencies": {
     "@ant-design/icons": "^4.5.0",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^13.1.1",
     "antd": "^4.12.3",
     "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.3",
@@ -15,11 +15,11 @@
     "less": "^4.1.1",
     "less-loader": "7.1.0",
     "node-sass": "5.0.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-router-cache-route": "^1.11.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.2",
+    "react-scripts": "4.0.3",
     "react-viewer": "^3.2.2",
     "sass-resources-loader": "^2.1.1",
     "web-vitals": "^1.1.0"
@@ -44,13 +44,13 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^7.15.0",
+    "eslint": "^7.23.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-config-standard-jsx": "^10.0.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-react": "^7.23.1",
     "react-app-rewired": "^2.1.8"
   }
 }
