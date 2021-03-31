@@ -14,9 +14,9 @@ class Result extends React.Component {
   render () {
     return (
       <>
-        <div className="g-center g-title">
+        <div className='g-center g-title'>
           this is Result page.<br />
-          <Link to="/fodder/result/detail/fodder1">jump to fodder detail page</Link>
+          <Link to='/fodder/result/detail/fodder1'>jump to fodder detail page</Link>
         </div>
       </>
     )

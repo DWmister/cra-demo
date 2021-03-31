@@ -2,6 +2,7 @@ import React from 'react'
 import { Layout, Menu, Avatar, Dropdown } from 'antd'
 import { Link } from 'react-router-dom'
 import routes from '../router'
+import avatarImg from '@/assets/img/avatar.jpg'
 
 class TheHeader extends React.Component {
   constructor (props) {
@@ -33,20 +34,18 @@ class TheHeader extends React.Component {
       if (item.children && item.children.length) {
         pre.push(
           <Menu.SubMenu
-            key={item.path}
-            title={
-              <span>
-                <span>{item.zh_name}</span>
-              </span>
-            }
+            key={ item.path }
+            title={ <span>
+              <span>{item.zh_name}</span>
+            </span> }
           >
             {this.getMenuNodes(item.children)}
           </Menu.SubMenu>
         )
       } else {
         pre.push(
-          <Menu.Item key={item.path}>
-            <Link to={item.path}>
+          <Menu.Item key={ item.path }>
+            <Link to={ item.path }>
               <span>{item.zh_name}</span>
             </Link>
           </Menu.Item>
@@ -66,39 +65,39 @@ class TheHeader extends React.Component {
 
     const dropDownMenu = (
       <Menu>
-        <Menu.Item key="/home">
-          <Link to="/">首页</Link>
-        </Menu.Item>
-        <Menu.Item key="/profile">
-          <Link to="/profile">个人中心</Link>
+        <Menu.Item key='/profile'>
+          <Link to='/profile'>个人中心</Link>
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item
-          key="logout"
-          onClick={this.logout}
-        >注销</Menu.Item>
+          key='logout'
+          onClick={ this.logout }
+        >注销
+        </Menu.Item>
       </Menu>
     )
 
     return (
-      <Layout.Header className="theHeader">
-        <div className="logo" />
-        <div className="theMenu">
+      <Layout.Header className='theHeader'>
+        <div className='logo'>
+          <Avatar src={ avatarImg } />
+          <b>中台系统模版</b>
+        </div>
+        <div className='theMenu'>
           {this.state.menuTreeNode.map(item => (
             <Menu
               key={ item.key }
-              mode="horizontal"
-              theme="dark"
+              mode='horizontal'
               selectedKeys={ selectedKeys }
             >
-              { item }
+              {item}
             </Menu>
           ))}
         </div>
-        <div className="rightPane">
-          <Dropdown overlay={ dropDownMenu } placement="bottomCenter">
+        <div className='rightPane'>
+          <Dropdown overlay={ dropDownMenu } placement='bottomCenter'>
             <div>
-              <Avatar src="https://wework.qpic.cn/bizmail/saHYIvB2RH2BLjTqpib3WKo1OD3HLdFKdeQIJicQQvhnv3Bib7hTHCiaOg/0"/>
+              <Avatar src={ avatarImg } />
             </div>
           </Dropdown>
         </div>

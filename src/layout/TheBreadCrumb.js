@@ -1,10 +1,10 @@
 import React from 'react'
 import { Breadcrumb } from 'antd'
 import routes from '../router'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 class TheBreadCrumb extends React.Component {
-  // 根据当前浏览器地址，获取其相关路由，用于渲染面包屑组件
+  // 根据当前url，获取其相关路由，用于渲染面包屑组件
   getPath = (menuList, pathname) => {
     const temppath = []
     try {
@@ -18,10 +18,7 @@ class TheBreadCrumb extends React.Component {
         if (node.path.includes(':')) {
           if (node.path.includes('/') && pathname.includes('/')) {
             const lastLocation = node.path.lastIndexOf('/')
-            if (
-              node.path.substring(0, lastLocation) ===
-              pathname.substring(0, lastLocation)
-            ) {
+            if (node.path.substring(0, lastLocation) === pathname.substring(0, lastLocation)) {
               node.dynamicName = pathname.substring(lastLocation + 1)
               throw new Error('GOT IT!')
             }
@@ -40,20 +37,19 @@ class TheBreadCrumb extends React.Component {
     } catch (e) {
       return temppath
     }
-  };
+  }
 
   render () {
     const { pathname } = this.props.location
     const path = this.getPath(routes, pathname)
     return (
       <>
-        {/* TODO: Breadcrumb目前默认只支持HashRouter，后续修改为支持到BrowserRouter */}
         <Breadcrumb>
           {path &&
             path.length > 1 &&
             path.map((item) => (
-              <Breadcrumb.Item key={item.path}>
-                <a href={`#${item.path}`}>{item.dynamicName || item.zh_name}</a>
+              <Breadcrumb.Item key={ item.path }>
+                <Link to={ item.path }>{item.dynamicName || item.zh_name}</Link>
               </Breadcrumb.Item>
             ))}
         </Breadcrumb>

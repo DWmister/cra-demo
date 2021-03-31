@@ -1,71 +1,51 @@
-import React from 'react'
-import { Layout } from 'antd'
+import { useState } from 'react'
+import { Layout, BackTop } from 'antd'
 import TheHeader from './TheHeader'
+import TheContent from './TheContent'
+import TheFooter from './TheFooter'
 import TheBreadCrumb from './TheBreadCrumb'
-import {
-  Redirect,
-  Route,
-  Switch
-} from 'react-router-dom'
-import routes from '../router'
 import './layout.scss'
 
-const { Content, Footer } = Layout
+function TheLayout (props) {
+  const [footer, setFooter] = useState(true)
+  const [darkClass, setDarkClass] = useState('hideDark g-hidden g-darkBg')
 
-class TheLayout extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      flattenRoutes: this.flattenRoutes(routes)
-    }
+  function hideFooter () {
+    setFooter(true)
+    setDarkClass('hideDark g-hidden g-darkBg')
+  }
+  function showFooter () {
+    setFooter(false)
+    setDarkClass('showDark g-darkBg')
   }
 
-  // 拉平路由，用于content渲染
-  flattenRoutes = (data) => {
-    const result = []
-    const cb = (data) => {
-      return data.reduce((pre, curr) => {
-        if (curr.children) {
-          cb(curr.children)
-        }
-        result.push(curr)
-        return pre
-      }, [])
-    }
-    cb(data)
-    return result
-  }
+  return (
+    <Layout className='layout'>
+      <TheHeader { ...props } />
 
-  render () {
-    return (
-      <Layout className="layout">
-        <TheHeader {...this.props}></TheHeader>
-        <Content className="theContent">
-          <TheBreadCrumb></TheBreadCrumb>
-          <div className="site-layout-content">
-            <Switch>
-              {this.state.flattenRoutes.map((route, idx) => {
-                return route.component && (
-                  <Route
-                    key={idx}
-                    path={route.path}
-                    exact={route.exact}
-                    name={route.name}
-                    render={props => (
-                      <route.component {...props} />
-                    )} />
-                )
-              })}
-              <Redirect from="/" to="/home" />
-            </Switch>
-          </div>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©2018 Created by Ant UED
-        </Footer>
-      </Layout>
-    )
-  }
+      {/* content区域 组合组件 */}
+      <TheContent { ...props }>
+        {/* 面包屑 */}
+        <TheBreadCrumb />
+      </TheContent>
+
+      {/* 回到顶部 */}
+      <BackTop>
+        <span>回到顶部</span>
+      </BackTop>
+
+      {/* 底部内容 + 全屏黑幕 */}
+      {/* hide属性控制子组件的显隐 */}
+      <TheFooter hide={ footer } hideFooter={ hideFooter } />
+      {/* 全屏黑幕 */}
+      <div className={ darkClass } />
+      {/* 底部版权 */}
+      <div className='cp-btn' onClick={ showFooter }>
+        xxx底部footer
+      </div>
+
+    </Layout>
+  )
 }
 
 export default TheLayout

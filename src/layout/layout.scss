@@ -1,37 +1,212 @@
 .layout {
 
     .theHeader {
+        height: 65px;
+        position: sticky;
+        top: 0;
+        z-index: 1051;
+        background: $global-black;
         
         .logo {
             float: left;
-            width: 120px;
-            height: 31px;
-            margin: 16px 24px 16px 0;
-            background: rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+
+            .ant-avatar-image {
+                width: 45px;
+                height: auto;
+            }
+            
+            b {
+                color: $global-white;
+                font-size: 20px;
+                display: inline-block;
+                margin-left: 20px;
+                margin-right: 50px;
+            }
         }
 
         .theMenu {
             display: flex;
+
+            ul.ant-menu.ant-menu-light.ant-menu-root.ant-menu-horizontal {
+                background-color: $global-black;
+            }
+            .ant-menu-horizontal > .ant-menu-item a {
+               color: $global-white;
+               font-weight: 400;
+            }
+            .ant-menu-horizontal > .ant-menu-item-selected a, .ant-menu-horizontal > .ant-menu-item a:hover {
+                color: $global-red;
+            }
         }
 
         .rightPane {
             float: right;
             cursor: pointer;
-            margin-top: -64px;
+            margin-top: -65px;
         }
     }
 
     .theContent {
-        padding: 20px 50px;
+        background: $global-bg;
 
         .ant-breadcrumb {
-            height: 30px;
+            height: 40px;
+            padding: 20px 0 0 40px;
         }
 
         .site-layout-content {
-            min-height: 280px;
-            padding: 24px;
-            background: #fff;
+            // padding: 24px 50px 60px 50px;
+            padding: 0 50px 60px 50px;
+            min-height: calc(100vh - 65px - 40px);
         }
     }
+
+    /* 底部版权内容 */
+    .theFooter {
+        z-index: 1053;
+        position: fixed;
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        left: 0;
+        bottom: -255px;
+        bottom: 0;
+        background: $global-black;
+        border-top: 2px solid $global-red;
+        text-align: center;
+        color: #7f7f7f;
+        line-height: 25px;
+        opacity: 0;
+
+        p {
+            margin: 0;
+        }
+        .logo {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        a.icon-culture {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-image: url(https://lilithimage.lilithcdn.com/aoc/pc/net_authentication.png?v=2019110114142535);
+            background-repeat: no-repeat;
+            background-position: center;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        a {
+            color: $global-white;
+        }
+        .close {
+            width: 64px;
+            background: url(../assets/img/dots.jpg) no-repeat 50% 72px;
+            position: absolute;
+            right: 180px;
+            top: -110px;
+            height: 110px;
+            cursor: pointer;
+        }
+        .close span {
+            display: block;
+            background: url(../assets/img/close.jpg) no-repeat 50% 0;
+            width: 64px;
+            height: 64px;
+        }
+    }
+    .theFooter.hideFooter {
+        animation: hideFooter .6s ease-out forwards;
+    }
+    .theFooter.showFooter {
+        animation: showFooter .6s ease-out forwards;
+    }
+
+    @keyframes hideFooter {
+        0% {
+            bottom: 0px;
+            opacity: 1;
+        }
+        50% {
+            opacity: .2;
+        }
+        100% {
+            bottom: -255px;
+            opacity: 0;
+        }
+    }
+    @keyframes showFooter {
+        0% {
+            bottom: -255px;
+            opacity: 0;
+        }
+        100% {
+            bottom: 0px;
+            opacity: 1;
+        }
+    }
+
+    /* 查看版权 */
+    .cp-btn {
+        position: fixed;
+        bottom: 0;
+        right: 50px;
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: $global-white;
+        cursor: pointer;
+        padding-right: 20px;
+        background: $global-black url(https://rok-cn.lilithgames.com/img/copy_arr.png) no-repeat 165px 15px;
+        border-top-left-radius: $global-radius;
+        border-top-right-radius: $global-radius;
+        z-index: 8;
+        transition: bottom .5s .5s;
+    }
+
+    /* 全屏黑幕 */
+    .showDark {
+        animation: showDark .5s ease forwards;
+    }
+    .hideDark {
+        animation: hideDark .5s ease forwards;
+    }
+    @keyframes showDark {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0.85;
+        }
+    }
+    @keyframes hideDark {
+        0% {
+            opacity: 0.85;
+        }
+        
+        100% {
+            opacity: 0;
+        }
+    }
+
+    // 回到顶部
+    .ant-back-top {
+        right: 300px;
+        bottom: 0;
+        line-height: 40px;
+        height: 40px;
+
+        span.fade-enter.fade-enter-active.fade {
+            border-top-left-radius: $global-radius;
+            border-top-right-radius: $global-radius;
+            width: 80px;
+            display: inline-block;
+            background: $global-black;
+            text-align: center;
+            color: $global-white;
+        }
+    }
+    
 }

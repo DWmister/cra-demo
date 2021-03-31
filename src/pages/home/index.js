@@ -9,7 +9,7 @@ class Home extends React.Component {
   render () {
     return (
       <>
-        <div className="g-center g-title">
+        <div className='g-center g-title'>
           this is home page.
         </div>
       </>

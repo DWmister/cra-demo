@@ -70,6 +70,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
+### 项目介绍
+基于react17 + react-router-dom + antd + axios + webpack + sass + eslint的中台系统基础模版
 
 ## 目录结构	
 
@@ -81,7 +83,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 │   ├─ api                    # 所有请求
 │   ├─ assets                 # 静态资源(图片、字体等)
 │   ├─ components             # 全局公用组件
-│   ├─ layout			            # 页面布局
+│   ├─ layout			      # 页面布局
 │   ├─ config                 # 全局配置文件
 │   ├─ pages                  # 页面文件
 │   ├─ router                 # 路由文件
@@ -94,7 +96,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ├── .gitignore                # git 忽略项
 ├── .env.development          # 开发环境变量配置
 ├── .env.production           # 生产环境变量配置
-├── config-overrides.js       # 对cra的webpack自定义配置
+├── config-overrides.js       # 对CRA的webpack自定义配置
 └── package.json              # 依赖项
 
 ```
@@ -107,5 +109,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 | [node-sass](https://www.npmjs.com/package/node-sass)         | sass支持                                      |
 | [antd](https://ant.design/index-cn)                          | UI组件库                                      |
 | [react-router-dom](https://reactrouter.com/web/guides/quick-start) | 路由                                          |
-
+| [axios](https://www.npmjs.com/package/axios) | 请求库                                          |
+| [react-router-cache-route](https://www.npmjs.com/package/react-router-cache-route) | 路由缓存                                          |
+| [customize-cra](https://www.npmjs.com/package/customize-cra) | 配合react-app-rewired使用，修改CRA配置的工具                                          |
+| [sass-resources-loader](https://www.npmjs.com/package/sass-resources-loader) | 全局注册sass变量                                         |
+| [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import) |对`antd`库进行按需加载                                         |
+| [less](http://lesscss.org/) |less支持(为了修改antd的默认主题，antd使用的less)                                         |
+| [less-loader](https://www.npmjs.com/package/less-loader) |webpack插件-less编译                                         |
+| [react-viewer](https://www.npmjs.com/package/react-viewer) |react 图片预览插件                                         |
 

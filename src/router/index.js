@@ -1,10 +1,11 @@
-// 引入路由视图组件
-import Home from '../pages/home'
-import Fodder from '../pages/fodder'
-import Result from '../pages/fodder/result'
-import Detail from '../pages/fodder/detail'
-import Part1 from '../pages/part1'
-import Profile from '../pages/profile'
+import { lazy } from 'react'
+
+// 懒加载引入路由视图组件(延迟加载在初次渲染时未使用到的组件)
+const Fodder = lazy(() => import('@/pages/fodder'))
+const Detail = lazy(() => import('@/pages/fodder/detail'))
+const About = lazy(() => import('@/pages/about'))
+const Framer = lazy(() => import('@/pages/framer'))
+const Profile = lazy(() => import('@/pages/profile'))
 
 /**
  * 路由配置
@@ -12,6 +13,7 @@ import Profile from '../pages/profile'
  * exact      是否精确匹配
  * name       路径名称
  * hidden     是否在菜单栏显示  默认:false 显示
+ * cache      是否需要缓存     默认:false 不需要
  */
 const routes = [
   {
@@ -20,40 +22,34 @@ const routes = [
     hidden: true
   },
   {
-    path: '/home',
-    name: 'Home',
-    zh_name: '主页',
-    component: Home
-  },
-  {
     path: '/fodder',
     exact: true,
     name: 'Fodder',
-    zh_name: '素材库',
+    zh_name: '搜索',
     component: Fodder,
+    cache: true,
     children: [
       {
-        path: '/fodder/result',
-        name: 'Result',
-        zh_name: '结果',
-        component: Result,
         hidden: true,
-        children: [
-          {
-            path: '/fodder/result/detail/:fodderId',
-            name: 'Detail',
-            zh_name: '详情',
-            component: Detail
-          }
-        ]
+        path: '/fodder/detail/:fodderName',
+        name: 'Detail',
+        zh_name: '详情',
+        component: Detail
       }
     ]
   },
   {
-    path: '/part1',
-    name: 'Part1',
+    path: '/about',
+    name: 'About',
     zh_name: '我的素材',
-    component: Part1
+    component: About
+  },
+  {
+    path: '/framer',
+    name: 'Framer',
+    zh_name: '创作者',
+    exact: true,
+    component: Framer
   },
   {
     path: '/profile',

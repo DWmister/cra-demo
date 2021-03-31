@@ -1,0 +1,187 @@
+// select
+// border
+.ant-select:focus {
+  outline: none;
+}
+// .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+//   background-color: transparent;
+// }
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  box-shadow: none;
+}
+// option hover/selected
+// .ant-select-item-option-selected:not(.ant-select-item-option-disabled), .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+//   background-color: $item-hover-red !important;
+//   color: $global-red;
+//   font-weight: 400;
+// }
+// active 清除自带的类hover效果
+.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+  background-color: transparent !important;
+}
+// selected
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  // background-color: $item-hover-red !important;
+  background-color: transparent !important;
+  color: $global-red;
+  font-weight: 400;
+}
+// 添加css hover效果
+.ant-select-item-option:hover {
+  background-color: $item-hover-red !important;
+  color: $global-red;
+}
+// 选中后的对号图标
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) .ant-select-item-option-state {
+  display: none;
+}
+
+// page select
+.ant-pagination {
+  text-align: right;
+  margin-top: 30px;
+
+  // 选中的页数
+  .ant-pagination-item-active {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $global-red;
+  }
+  // 选择的页码框和条目数框
+  .ant-pagination-options {
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector, .ant-pagination-options-quick-jumper input {
+      outline: none;
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    }
+    .ant-pagination-options-quick-jumper input:focus, .ant-pagination-options-quick-jumper input-focused {
+      box-shadow: none;
+      border-color: $global-red;
+    }
+    .ant-select:not(.ant-select-disabled):hover .ant-select-selector, .ant-pagination-options-quick-jumper input:hover {
+      border-color: $global-red;
+    }
+  }
+}
+
+
+// button
+.ant-btn {
+  color: $global-red;
+  border: none;
+  box-shadow: $box-shadow;
+}
+// large round button
+.ant-btn.ant-btn-round.ant-btn-lg {
+  outline: none;
+  padding: 8px 30px;
+  font-size: 14px;
+}
+// small round button
+.ant-btn.ant-btn-round.ant-btn-sm {
+  // box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+  outline: none;
+}
+.ant-btn:active, .ant-btn:hover, .ant-btn:focus {
+  color: $global-red;
+}
+// button active/长按时的状态效果
+.ant-btn:not([disabled]):active {
+  box-shadow: $box-shadow;
+}
+// 关闭button点击时的光晕效果
+button[ant-click-animating-without-extra-node]:after {
+  border: 0 none;
+  opacity: 0;
+  animation:none 0 ease 0 1 normal;
+}
+// danger primary button
+.ant-btn-dangerous.ant-btn-primary {
+  box-shadow: $box-shadow;
+  background: $global-red;
+  border-color: $global-red;
+}
+.ant-btn-dangerous.ant-btn-primary:hover, .ant-btn-dangerous.ant-btn-primary:focus {
+  color: #fff;
+  background: $global-red;
+  border-color: $global-red;
+}
+// ant-btn-icon-only
+.ant-btn.ant-btn-icon-only {
+  color: rgba(0, 0, 0, .85);
+}
+
+
+// input
+.ant-input {
+  border: none;
+  border-bottom: 1px solid;
+  border-radius: 0;
+}
+.ant-input:hover {
+  border-color: $global-red;
+}
+.ant-input:focus, .ant-input-focused {
+  border-color: $global-red;
+  box-shadow: none;
+}
+
+
+// collapase
+.ant-collapse-borderless {
+  border-radius: $global-radius;
+  background-color: transparent;
+  // box-shadow: $box-shadow;
+  // box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .08), 0 6px 10px 0 rgba(0, 0, 0, .06), 0 1px 18px 0 rgba(0, 0, 0, .04);
+  box-shadow: 0 2px 6px 1px rgba(0,0,0,.04), 0 2px 6px 0 rgba(0,0,0,.04), 0 1px 8px 0 rgba(0,0,0,.04);
+}
+.ant-collapse-borderless > .ant-collapse-item {
+  border-bottom: none;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  padding-left: 78px;
+  text-align: center;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-arrow {
+  padding-top: 6px;
+  left: 50%;
+  margin-left: -36px;
+}
+.ant-collapse-borderless > .ant-collapse-item:last-child, .ant-collapse-borderless > .ant-collapse-item:last-child .ant-collapse-header {
+  min-height: 45px;
+}
+
+
+// menu
+.ant-menu-horizontal {
+  border-bottom: none;
+}
+
+
+// tabs
+.ant-tabs-tab {
+  margin: 0 50px 0 0;
+}
+.ant-tabs-large > .ant-tabs-nav .ant-tabs-tab {
+  padding: 10px 0;
+}
+
+
+// ant-table-wrapper
+.ant-table-wrapper {
+  max-height: calc(100vh - 65px - 40px - 60px);
+  overflow-y: scroll;
+
+  .ant-pagination-item {
+    border: none;
+    border-radius: 0;
+  }
+  .ant-pagination-prev .ant-pagination-item-link, .ant-pagination-next .ant-pagination-item-link {
+    border: none;
+    border-radius: 0;
+  }
+  .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    box-shadow: none;
+  }
+}

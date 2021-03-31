@@ -1,0 +1,17 @@
+.c-copyLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    width: 80%;
+    // 字母换行
+    word-break: break-all
+  }
+
+  .copy {
+    color: #aaa;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

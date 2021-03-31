@@ -1,0 +1,10 @@
+.fodderPage {
+  .operate {
+    font-size: 18px;
+
+    &-edit, &-info {
+      cursor: pointer;
+      margin: 0 5px;
+    }
+  }
+}

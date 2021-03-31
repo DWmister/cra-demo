@@ -1,30 +1,17 @@
-import React from 'react'
+import { useEffect } from 'react'
+import { Empty } from 'antd'
 
-class Detail extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      fodderId: ''
-    }
-  }
+export default function Detail (props) {
+  useEffect(() => {
+    const fodderName = props.match.params.fodderName
+    document.title = `中台模版 - ${fodderName}`
+  }, [])
 
-  componentDidMount () {
-    const fodderId = this.props.match.params.fodderId
-    this.setState({
-      fodderId: fodderId
-    })
-    document.title = `Detail ${fodderId}`
-  }
-
-  render () {
-    return (
-      <>
-        <div className="g-center g-title">
-          this is Detail { this.state.fodderId } page.
-        </div>
-      </>
-    )
-  }
+  return (
+    <div className='detailPage'>
+      <div className='g-center g-title'>
+        <Empty />
+      </div>
+    </div>
+  )
 }
-
-export default Detail
