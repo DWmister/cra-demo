@@ -23,6 +23,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     indent: [2, 2],
+    'react/display-name': 'off',
     // jsx
     'react/jsx-handler-names': 'off',
     'react/jsx-indent-props': 'off',
