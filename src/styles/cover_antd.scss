@@ -185,3 +185,9 @@ button[ant-click-animating-without-extra-node]:after {
     box-shadow: none;
   }
 }
+
+
+// ant-message
+.ant-message {
+  z-index: 2000;
+}
